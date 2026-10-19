@@ -1,8 +1,9 @@
-import { getMenu } from '@/lib/menu'
+import { getMenu, MENU_ES_EJEMPLO } from '@/lib/menu'
 import MenuExplorer from '@/components/MenuExplorer'
 
 export const metadata = {
-  title: 'Carta Digital | Restaurante Parra · Manzanares el Real',
+  title: 'Carta: carnes de Guadarrama, arroces y cocina castellana',
+  alternates: { canonical: '/carta' },
   description: 'Descubre nuestra propuesta gastronómica. Carnes de la Sierra de Guadarrama, arroces por encargo, raciones y postres caseros desde 1973.',
 }
 
@@ -25,6 +26,13 @@ export default async function CartaPage() {
           </p>
           <div className="w-16 h-0.5 bg-amber-600 mx-auto" />
         </div>
+
+        {MENU_ES_EJEMPLO && (
+          <div className="border-2 border-red-500 bg-red-50 text-red-800 p-4 rounded text-sm font-semibold text-center">
+            CARTA DE EJEMPLO: platos, precios y alérgenos inventados. No publicar hasta cargar la carta real de Parra
+            (variable NEXT_PUBLIC_GOOGLE_SHEET_CSV_URL).
+          </div>
+        )}
 
         {/* Explorador de carta interactivo */}
         <MenuExplorer initialItems={menuItems} />

@@ -9,10 +9,38 @@ export type MenuItem = {
   receta1973?: boolean;
 };
 
+// true mientras no haya una hoja de Google con la carta REAL de Parra.
+// Los platos, precios y alérgenos de abajo son de EJEMPLO: no se pueden publicar.
+export const MENU_ES_EJEMPLO = !process.env.NEXT_PUBLIC_GOOGLE_SHEET_CSV_URL;
+
+// Lector de CSV que respeta comillas: una descripción con comas ("Judiones, chorizo…")
+// no rompe las columnas. Google Sheets exporta así los campos con comas.
+function parseCSV(texto: string): string[][] {
+  const filas: string[][] = [];
+  let fila: string[] = [];
+  let campo = '';
+  let entreComillas = false;
+  for (let i = 0; i < texto.length; i++) {
+    const c = texto[i];
+    if (entreComillas) {
+      if (c === '"' && texto[i + 1] === '"') { campo += '"'; i++; }
+      else if (c === '"') entreComillas = false;
+      else campo += c;
+    } else if (c === '"') entreComillas = true;
+    else if (c === ',') { fila.push(campo); campo = ''; }
+    else if (c === '\n' || c === '\r') {
+      if (c === '\r' && texto[i + 1] === '\n') i++;
+      fila.push(campo); filas.push(fila); fila = []; campo = '';
+    } else campo += c;
+  }
+  if (campo || fila.length) { fila.push(campo); filas.push(fila); }
+  return filas;
+}
+
 export async function getMenu(): Promise<MenuItem[]> {
   const sheetUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_CSV_URL;
 
-  // Si no hay URL configurada, devolvemos la carta completa y realista de Parra con atributos avanzados
+  // DATOS DE EJEMPLO (no son la carta real de Parra). Sustituir por la hoja de Google real.
   if (!sheetUrl) {
     return [
       // ENTRANTES Y PARA COMPARTIR
@@ -196,10 +224,10 @@ export async function getMenu(): Promise<MenuItem[]> {
     if (!res.ok) throw new Error('Error al cargar el CSV');
     
     const text = await res.text();
-    const rows = text.split('\n').slice(1);
-    
-    return rows.map(row => {
-      const [categoria, nombre, descripcion, precio, alergenosStr, flags] = row.split(',').map(item => item?.trim() || '');
+    const rows = parseCSV(text).slice(1);
+
+    return rows.map(cols => {
+      const [categoria, nombre, descripcion, precio, alergenosStr, flags] = cols.map(item => item?.trim() || '');
       const alergenos = alergenosStr ? alergenosStr.split(';').map(a => a.trim()) : undefined;
       const destacado = flags?.includes('destacado');
       const sinGluten = flags?.includes('singluten');

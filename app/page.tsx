@@ -1,5 +1,6 @@
 import { ArrowRight, Flame, Beef, UtensilsCrossed, Star, Mountain, Castle, Clock, CalendarCheck, ShieldCheck } from 'lucide-react'
 import ReservationButton from '@/components/ReservationButton'
+import { SITE } from '@/lib/site'
 
 export default function Home() {
   return (
@@ -19,6 +20,9 @@ export default function Home() {
 
           <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight leading-tight drop-shadow-md break-words">
             El sabor auténtico <br className="hidden sm:inline" /> de la Sierra
+            <span className="block mt-3 text-base sm:text-xl md:text-2xl font-sans font-medium tracking-wide text-amber-300">
+              Restaurante en Manzanares el Real
+            </span>
           </h1>
 
           <p className="text-base sm:text-xl md:text-2xl text-zinc-300 font-light max-w-2xl mx-auto leading-relaxed">
@@ -26,12 +30,10 @@ export default function Home() {
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
-              href="#reserva" 
+            <ReservationButton
+              label="Reservar Mesa"
               className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-zinc-950 px-8 py-4 rounded-sm font-bold text-sm tracking-widest uppercase transition-all shadow-xl hover:shadow-amber-500/20 text-center"
-            >
-              Reservar Mesa
-            </a>
+            />
             <a 
               href="/carta" 
               className="w-full sm:w-auto border border-white/30 hover:border-white hover:bg-white/10 text-white px-8 py-4 rounded-sm font-bold text-sm tracking-widest uppercase transition-all flex items-center justify-center gap-2"
@@ -52,7 +54,7 @@ export default function Home() {
               <span>(Más de 1.800 reseñas en Google)</span>
             </div>
             <span className="hidden sm:inline text-zinc-600">•</span>
-            <span className="text-zinc-400">C. de los Panaderos, 13</span>
+            <span className="text-zinc-400">{SITE.calle}</span>
           </div>
         </div>
       </section>
@@ -113,7 +115,7 @@ export default function Home() {
                 <p className="text-xs text-zinc-500">Ambiente cálido y acogedor en Manzanares</p>
               </div>
               <span className="text-xs font-semibold bg-amber-100 text-amber-900 px-3 py-1 rounded-full">
-                Clima Climatizado
+                Climatizado
               </span>
             </div>
           </div>
@@ -211,12 +213,10 @@ export default function Home() {
               </li>
             </ul>
             <div className="pt-2">
-              <a 
-                href="#reserva" 
+              <ReservationButton
+                label="Reservar mesa e indicar el encargo"
                 className="inline-block bg-zinc-900 hover:bg-zinc-800 text-white px-6 py-3.5 rounded-sm font-bold text-xs uppercase tracking-widest transition"
-              >
-                Reservar mesa indicando encargo
-              </a>
+              />
             </div>
           </div>
           <div className="relative h-[420px] rounded-lg overflow-hidden shadow-xl border border-amber-900/10">
@@ -295,7 +295,7 @@ export default function Home() {
             <ReservationButton />
 
             <div className="text-xs text-zinc-500 space-y-1">
-              <p>¿Sois un grupo de más de 12 personas? Llámanos al 918 539 577</p>
+              <p>¿Sois un grupo grande? Llámanos al <a href={SITE.telefonoHref} className="underline">{SITE.telefono}</a></p>
               <p>Recomendamos reservar con antelación para fines de semana.</p>
             </div>
           </div>

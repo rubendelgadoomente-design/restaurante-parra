@@ -1,8 +1,10 @@
-import { MapPin, Phone, Mail, Clock, Car, Navigation, ShieldCheck } from 'lucide-react'
+import { MapPin, Phone, Clock, Car, Navigation } from 'lucide-react'
 import ReservationButton from '@/components/ReservationButton'
+import { SITE, HORARIO_RESUMEN } from '@/lib/site'
 
 export const metadata = {
-  title: 'Contacto y Ubicación | Restaurante Parra · Manzanares el Real',
+  title: 'Ubicación, horario y contacto',
+  alternates: { canonical: '/contacto' },
   description: 'Cómo llegar a Restaurante Parra en Calle de los Panaderos 13, Manzanares el Real. Horarios de cocina, teléfonos de reservas y aparcamientos cercanos.',
 }
 
@@ -35,8 +37,8 @@ export default function ContactoPage() {
             <h2 className="font-serif font-bold text-xl text-zinc-900">Dirección</h2>
             <div className="text-sm text-zinc-600 space-y-1 leading-relaxed">
               <p className="font-medium text-zinc-900">Restaurante Parra</p>
-              <p>Calle de los Panaderos, 13</p>
-              <p>28410 Manzanares el Real (Madrid)</p>
+              <p>{SITE.calle}</p>
+              <p>{SITE.codigoPostal} {SITE.localidad} ({SITE.provincia})</p>
             </div>
             <div className="pt-2">
               <a 
@@ -58,17 +60,17 @@ export default function ContactoPage() {
             <h2 className="font-serif font-bold text-xl text-zinc-900">Teléfono & Email</h2>
             <div className="text-sm text-zinc-600 space-y-2 leading-relaxed">
               <p className="flex items-center gap-2">
-                <span className="font-semibold text-zinc-900">Fijo:</span> 918 539 577
+                <span className="font-semibold text-zinc-900">Fijo:</span> <a href={SITE.telefonoHref}>{SITE.telefono}</a>
               </p>
               <p className="flex items-center gap-2">
-                <span className="font-semibold text-zinc-900">Móvil:</span> 658 504 300
+                <span className="font-semibold text-zinc-900">Móvil:</span> <a href={SITE.movilHref}>{SITE.movil}</a>
               </p>
               <p className="text-xs text-zinc-500 pt-1">
                 restparra.manzanares@gmail.com
               </p>
             </div>
             <p className="text-xs text-amber-800 bg-amber-50 p-2 rounded">
-              Para reservas de mesa recomendamos usar el motor online para confirmación inmediata.
+              Para reservar mesa, usa el botón Reservar mesa: verás la disponibilidad real.
             </p>
           </div>
 
@@ -79,17 +81,7 @@ export default function ContactoPage() {
             </div>
             <h2 className="font-serif font-bold text-xl text-zinc-900">Horarios de Cocina</h2>
             <div className="text-xs text-zinc-600 space-y-2 leading-relaxed">
-              <div>
-                <p className="font-semibold text-zinc-900">Comidas (Lunes a Domingo):</p>
-                <p>13:00 - 16:30 h</p>
-              </div>
-              <div>
-                <p className="font-semibold text-zinc-900">Cenas (Viernes y Sábados):</p>
-                <p>20:30 - 23:30 h</p>
-              </div>
-              <div className="pt-1 text-zinc-400">
-                <p>• Martes: Cerrado por descanso</p>
-              </div>
+              {HORARIO_RESUMEN.map((linea) => <p key={linea}>{linea}</p>)}
             </div>
           </div>
         </div>
