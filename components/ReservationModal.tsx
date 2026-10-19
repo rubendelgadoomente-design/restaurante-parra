@@ -9,12 +9,12 @@ import { SITE } from '@/lib/site'
 // Esta web no guarda ni simula reservas: o muestra el widget real, o manda a llamar.
 //
 // Configurar en Vercel / .env.local:
-//   NEXT_PUBLIC_COVERMANAGER_URL=https://www.covermanager.com/reserve/module_restaurant/<slug-de-parra>/spanish
-// (el enlace exacto se copia del botón de reservas de la web actual o del panel de CoverManager)
+//   NEXT_PUBLIC_COVERMANAGER_URL (opcional). Por defecto se usa el módulo real de Parra:
+//   https://www.covermanager.com/reservation/module_restaurant/restaurante-parra/spanish
 
 export default function ReservationModal() {
   const { isOpen, closeReservation } = useReservation()
-  const coverUrl = process.env.NEXT_PUBLIC_COVERMANAGER_URL
+  const coverUrl = SITE.coverManagerUrl
 
   // Cerrar con Escape y bloquear el scroll del fondo mientras está abierto.
   useEffect(() => {

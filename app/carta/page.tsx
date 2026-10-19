@@ -1,4 +1,4 @@
-import { getMenu, MENU_ES_EJEMPLO } from '@/lib/menu'
+import { getMenu, MENU_ES_EJEMPLO, CARTA_ACTUALIZADA } from '@/lib/menu'
 import MenuExplorer from '@/components/MenuExplorer'
 
 export const metadata = {
@@ -36,6 +36,14 @@ export default async function CartaPage() {
 
         {/* Explorador de carta interactivo */}
         <MenuExplorer initialItems={menuItems} />
+
+        <div className="text-xs text-zinc-500 space-y-1 text-center max-w-2xl mx-auto">
+          <p>
+            <strong>Alérgenos:</strong> si tienes alguna alergia o intolerancia, infórmanos antes de pedir.
+            Elaboramos los platos en una cocina común, por lo que no podemos garantizar la ausencia total de trazas.
+          </p>
+          <p>IVA incluido. Carta actualizada el {CARTA_ACTUALIZADA}. Los precios pueden variar.</p>
+        </div>
       </div>
     </main>
   )

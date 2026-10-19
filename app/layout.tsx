@@ -39,6 +39,7 @@ const jsonLd = {
   url: SITE.url,
   telephone: '+34918539577',
   servesCuisine: ['Castellana', 'Española'],
+  sameAs: [SITE.instagram],
   priceRange: '€€',
   foundingDate: String(SITE.desde),
   menu: `${SITE.url}/carta`,
@@ -133,6 +134,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="/aviso-legal" className="hover:text-white">Aviso legal</a>
               <a href="/privacidad" className="hover:text-white">Política de privacidad</a>
               <a href="/cookies" className="hover:text-white">Política de cookies</a>
+              <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white">Instagram</a>
             </div>
           </footer>
 

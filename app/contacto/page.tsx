@@ -79,7 +79,7 @@ export default function ContactoPage() {
             <div className="w-12 h-12 bg-amber-500/10 text-amber-700 rounded-sm flex items-center justify-center">
               <Clock size={24} />
             </div>
-            <h2 className="font-serif font-bold text-xl text-zinc-900">Horarios de Cocina</h2>
+            <h2 className="font-serif font-bold text-xl text-zinc-900">Horario</h2>
             <div className="text-xs text-zinc-600 space-y-2 leading-relaxed">
               {HORARIO_RESUMEN.map((linea) => <p key={linea}>{linea}</p>)}
             </div>

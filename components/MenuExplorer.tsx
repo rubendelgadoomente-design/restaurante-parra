@@ -86,6 +86,8 @@ export default function MenuExplorer({ initialItems }: MenuExplorerProps) {
               Especialidades
             </button>
 
+            {/* Solo se muestra si algún plato está marcado como sin gluten (validado por el restaurante) */}
+            {initialItems.some(i => i.sinGluten) && (
             <button
               onClick={() => setOnlyGlutenFree(!onlyGlutenFree)}
               className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold tracking-wider transition ${
@@ -97,6 +99,7 @@ export default function MenuExplorer({ initialItems }: MenuExplorerProps) {
               <Wheat size={13} />
               Apto Celíacos (Sin Gluten)
             </button>
+            )}
           </div>
         </div>
 
@@ -128,7 +131,7 @@ export default function MenuExplorer({ initialItems }: MenuExplorerProps) {
         <div className="bg-amber-50 border border-amber-200 rounded-sm p-4 flex items-start gap-3 text-amber-950 text-xs md:text-sm">
           <Clock size={18} className="text-amber-700 flex-shrink-0 mt-0.5" />
           <div>
-            <strong className="font-semibold">Política de Arroces:</strong> Se elaboran por encargo con antelación mínima de 2 horas (mínimo 2 raciones). Indícalo en tu reserva online para tenerlo listo al llegar.
+            <strong className="font-semibold">Política de Arroces:</strong> Por encargo, mínimo dos personas. Indícalo en las observaciones de tu reserva o llámanos.
           </div>
         </div>
       )}

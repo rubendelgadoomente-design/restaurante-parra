@@ -9,9 +9,65 @@ export type MenuItem = {
   receta1973?: boolean;
 };
 
-// true mientras no haya una hoja de Google con la carta REAL de Parra.
-// Los platos, precios y alérgenos de abajo son de EJEMPLO: no se pueden publicar.
-export const MENU_ES_EJEMPLO = !process.env.NEXT_PUBLIC_GOOGLE_SHEET_CSV_URL;
+// Carta REAL de Parra copiada de su carta de Avocaty el 19/10/2026.
+// Sustituirla por la hoja de Google cuando el restaurante la mantenga allí.
+// La carta original NO indica alérgenos por plato (solo el aviso general),
+// así que aquí tampoco se marcan alérgenos ni "sin gluten" hasta que Parra los valide.
+export const CARTA_ACTUALIZADA = '19/10/2026';
+export const MENU_ES_EJEMPLO = false;
+
+const CARTA_PARRA: MenuItem[] = [
+    {"categoria": "Para compartir", "nombre": "Puerros confitados a la plancha con salsa romesco", "descripcion": "", "precio": "19,00 €"},
+    {"categoria": "Para compartir", "nombre": "Flores de alcachofa a la plancha con paleta ibérica", "descripcion": "", "precio": "17,00 €"},
+    {"categoria": "Para compartir", "nombre": "Alcachofas confitadas rellenas de rabo de toro", "descripcion": "3 piezas", "precio": "24,00 €"},
+    {"categoria": "Para compartir", "nombre": "Croquetas cremosas de jamón", "descripcion": "", "precio": "13,90 €"},
+    {"categoria": "Para compartir", "nombre": "Huevos rotos con paleta ibérica", "descripcion": "", "precio": "17,90 €"},
+    {"categoria": "Para compartir", "nombre": "Revuelto de setas meloso con langostinos", "descripcion": "", "precio": "14,90 €"},
+    {"categoria": "Para compartir", "nombre": "Morcilla de Burgos frita con pimientos de Padrón", "descripcion": "", "precio": "14,90 €"},
+    {"categoria": "Para compartir", "nombre": "Gambas al ajillo en cazuela", "descripcion": "Con un toque alegre de guindilla", "precio": "19,90 €"},
+    {"categoria": "Para compartir", "nombre": "Queso camembert crujiente sobre cebolla caramelizada", "descripcion": "", "precio": "15,00 €"},
+    {"categoria": "Para compartir", "nombre": "Habitas baby con jamón y huevo frito", "descripcion": "", "precio": "22,90 €"},
+    {"categoria": "Para compartir", "nombre": "Carpaccio de buey con rúcula y queso parmesano", "descripcion": "", "precio": "19,90 €"},
+    {"categoria": "Para compartir", "nombre": "Canutillos de cecina rellenos de queso de cabra", "descripcion": "Con confitura de pimientos", "precio": "22,90 €"},
+    {"categoria": "Para compartir", "nombre": "Pulpito a la plancha con espárragos trigueros", "descripcion": "", "precio": "27,50 €"},
+    {"categoria": "Para compartir", "nombre": "Tartar de vieiras con aguacate, lima y eneldo", "descripcion": "", "precio": "20,90 €"},
+    {"categoria": "Para compartir", "nombre": "Zamburiñas con salsa de mango y ajitos", "descripcion": "8 piezas", "precio": "22,90 €"},
+    {"categoria": "Para compartir", "nombre": "Torreznos de Soria con pimientos de Padrón", "descripcion": "", "precio": "15,90 €"},
+    {"categoria": "Para compartir", "nombre": "Anchoas del Cantábrico con AOVE", "descripcion": "", "precio": "21,90 €"},
+    {"categoria": "Para compartir", "nombre": "Queso curado de oveja", "descripcion": "", "precio": "14,90 €"},
+    {"categoria": "Para compartir", "nombre": "Gilda de la casa", "descripcion": "Unidad", "precio": "3,50 €"},
+    {"categoria": "Para compartir", "nombre": "Ración de pan y aperitivo", "descripcion": "Por persona", "precio": "1,50 €"},
+    {"categoria": "Ensaladas", "nombre": "Ensalada verde de cecina, queso de cabra y frutos secos", "descripcion": "", "precio": "16,00 €"},
+    {"categoria": "Ensaladas", "nombre": "Pimientos asados al horno con ventresca", "descripcion": "Aliñados, con cebolla morada y guindillas", "precio": "18,00 €"},
+    {"categoria": "Ensaladas", "nombre": "Ensalada de ventresca con tomate rosa y cebolla morada", "descripcion": "", "precio": "14,90 €"},
+    {"categoria": "Ensaladas", "nombre": "Ensalada PARRA", "descripcion": "Queso burrata, tomate rosa, salsa pesto y aguacate", "precio": "18,00 €"},
+    {"categoria": "Ensaladas", "nombre": "Ensaladilla rusa con langostinos", "descripcion": "", "precio": "12,90 €"},
+    {"categoria": "De cuchara", "nombre": "Judiones con matanza de pueblo", "descripcion": "", "precio": "13,50 €"},
+    {"categoria": "De cuchara", "nombre": "Sopa castellana al estilo del marqués", "descripcion": "", "precio": "9,00 €"},
+    {"categoria": "De cuchara", "nombre": "Callos con morros", "descripcion": "", "precio": "17,90 €", "destacado": true},
+    {"categoria": "Arroces (por encargo)", "nombre": "Arroz caldoso con bogavante", "descripcion": "Por encargo, mínimo dos personas. Precio por persona", "precio": "25,90 €"},
+    {"categoria": "Arroces (por encargo)", "nombre": "Paella de mariscos", "descripcion": "Por encargo, mínimo dos personas. Precio por persona", "precio": "19,50 €"},
+    {"categoria": "Arroces (por encargo)", "nombre": "Paella mixta", "descripcion": "Por encargo, mínimo dos personas. Precio por persona", "precio": "15,70 €"},
+    {"categoria": "Carnes y parrilla", "nombre": "Chuletón de vaca madurada trinchado con hueso", "descripcion": "Según peso", "precio": "69,00 €/kg"},
+    {"categoria": "Carnes y parrilla", "nombre": "Lomo de vaca madurada trinchado, sin hueso", "descripcion": "500 g aprox.", "precio": "39,00 €"},
+    {"categoria": "Carnes y parrilla", "nombre": "Solomillo especial de ternera IGP Sierra de Guadarrama", "descripcion": "", "precio": "29,90 €"},
+    {"categoria": "Carnes y parrilla", "nombre": "Paletilla de lechazo asada al estilo tradicional", "descripcion": "", "precio": "29,90 €"},
+    {"categoria": "Carnes y parrilla", "nombre": "Rabo de toro estofado al vino tinto", "descripcion": "", "precio": "25,50 €"},
+    {"categoria": "Carnes y parrilla", "nombre": "Chuletitas de cordero lechal con su guarnición", "descripcion": "6 piezas", "precio": "27,00 €"},
+    {"categoria": "Carnes y parrilla", "nombre": "Cachopo de ternera", "descripcion": "Jamón ibérico y queso de Miraflores", "precio": "24,90 €"},
+    {"categoria": "Carnes y parrilla", "nombre": "Entrecot de ternera IGP Sierra de Guadarrama", "descripcion": "", "precio": "26,00 €"},
+    {"categoria": "Del mar", "nombre": "Bocaditos de merluza rebozados con alioli", "descripcion": "", "precio": "21,00 €"},
+    {"categoria": "Del mar", "nombre": "Lubina a la plancha con salsa bilbaína", "descripcion": "", "precio": "22,90 €"},
+    {"categoria": "Del mar", "nombre": "Bacalao Islas Feroe con tomate y gambas", "descripcion": "", "precio": "27,90 €"},
+    {"categoria": "Del mar", "nombre": "Sepia a la plancha con ajo, perejil y alioli", "descripcion": "", "precio": "24,90 €"},
+    {"categoria": "Del mar", "nombre": "Chipirones encebollados con patatas baby al horno", "descripcion": "", "precio": "24,90 €"},
+    {"categoria": "Postres caseros", "nombre": "Brownie con helado y crema de natillas", "descripcion": "", "precio": "7,60 €"},
+    {"categoria": "Postres caseros", "nombre": "Tarta de tiramisú", "descripcion": "", "precio": "7,00 €"},
+    {"categoria": "Postres caseros", "nombre": "Tarta de queso con arándanos", "descripcion": "", "precio": "7,50 €", "destacado": true},
+    {"categoria": "Postres caseros", "nombre": "Tarta de tres chocolates", "descripcion": "", "precio": "7,00 €"},
+    {"categoria": "Postres caseros", "nombre": "Tatín de manzana con helado", "descripcion": "", "precio": "7,60 €"},
+    {"categoria": "Postres caseros", "nombre": "Sorbete de limón al cava", "descripcion": "", "precio": "6,50 €"},
+];
 
 // Lector de CSV que respeta comillas: una descripción con comas ("Judiones, chorizo…")
 // no rompe las columnas. Google Sheets exporta así los campos con comas.
@@ -40,183 +96,9 @@ function parseCSV(texto: string): string[][] {
 export async function getMenu(): Promise<MenuItem[]> {
   const sheetUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_CSV_URL;
 
-  // DATOS DE EJEMPLO (no son la carta real de Parra). Sustituir por la hoja de Google real.
+  // Sin hoja de Google configurada: se usa la carta real copiada arriba.
   if (!sheetUrl) {
-    return [
-      // ENTRANTES Y PARA COMPARTIR
-      { 
-        categoria: 'Para Compartir', 
-        nombre: 'Jamón Ibérico de Bellota', 
-        descripcion: 'Cortado a cuchillo al momento, acompañado de tostas de pan con tomate aliñado.', 
-        precio: '24.00€',
-        alergenos: ['Gluten (en tosta opcional)'],
-        destacado: true,
-        sinGluten: true
-      },
-      { 
-        categoria: 'Para Compartir', 
-        nombre: 'Croquetas Caseras de Jamón y Boletus', 
-        descripcion: 'Bechamel suave y crujiente exterior, receta tradicional de la casa (6 uds).', 
-        precio: '13.50€',
-        alergenos: ['Gluten', 'Lácteos', 'Huevo'],
-        destacado: true
-      },
-      { 
-        categoria: 'Para Compartir', 
-        nombre: 'Torreznos Crujientes de Soria', 
-        descripcion: 'Corte grueso confitado a baja temperatura y suflado a fuego vivo.', 
-        precio: '12.00€',
-        destacado: true,
-        sinGluten: true,
-        receta1973: true
-      },
-      { 
-        categoria: 'Para Compartir', 
-        nombre: 'Queso Puro de Oveja Curado', 
-        descripcion: 'Con nueces de la comarca y confitura casera de higos.', 
-        precio: '15.00€',
-        alergenos: ['Lácteos', 'Frutos secos'],
-        sinGluten: true
-      },
-
-      // PLATOS DE CUCHARA
-      { 
-        categoria: 'Cocina de Cuchara', 
-        nombre: 'Judiones de La Granja', 
-        descripcion: 'Estofados lentamente con chorizo ibérico, morcilla de la sierra y oreja.', 
-        precio: '14.50€',
-        destacado: true,
-        sinGluten: true,
-        receta1973: true
-      },
-      { 
-        categoria: 'Cocina de Cuchara', 
-        nombre: 'Sopa Castellana Tradicional', 
-        descripcion: 'Ajo dorado, pimentón de la Vera, tacos de jamón y huevo escalfado con pan de hogaza.', 
-        precio: '11.00€',
-        alergenos: ['Gluten', 'Huevo'],
-        receta1973: true
-      },
-      { 
-        categoria: 'Cocina de Cuchara', 
-        nombre: 'Rabo de Toro Estofado', 
-        descripcion: 'Guiso meloso a fuego lento con reducción de vino tinto de Madrid y patatas rústicas.', 
-        precio: '19.50€',
-        destacado: true,
-        sinGluten: true
-      },
-
-      // CARNES DE GUADARRAMA
-      { 
-        categoria: 'Carnes de Guadarrama', 
-        nombre: 'Chuletón de Vaca Madurada (1kg aprox.)', 
-        descripcion: 'Selección de la Sierra de Guadarrama, maduración mínima 30 días, hecho a la brasa con sal en escamas.', 
-        precio: '54.00€',
-        destacado: true,
-        sinGluten: true
-      },
-      { 
-        categoria: 'Carnes de Guadarrama', 
-        nombre: 'Solomillo a la Brasa con Foie', 
-        descripcion: 'Centro de solomillo de ternera con medallón de foie fresco y reducción de Pedro Ximénez.', 
-        precio: '26.00€',
-        alergenos: ['Sulfitos'],
-        destacado: true
-      },
-      { 
-        categoria: 'Carnes de Guadarrama', 
-        nombre: 'Entrecot de Ternera de Guadarrama', 
-        descripcion: 'Corte noble de 400g a la parrilla de carbón de encina con guarnición de patatas y pimientos de padrón.', 
-        precio: '22.50€',
-        sinGluten: true
-      },
-      { 
-        categoria: 'Carnes de Guadarrama', 
-        nombre: 'Paletilla de Lechazo Asada en Horno', 
-        descripcion: 'Asado tradicional castellano con agua, manteca y sal, jugosa por dentro y piel crujiente.', 
-        precio: '29.00€',
-        destacado: true,
-        sinGluten: true,
-        receta1973: true
-      },
-      { 
-        categoria: 'Carnes de Guadarrama', 
-        nombre: 'Chuletitas de Cordero Lechal', 
-        descripcion: 'Fritas al ajillo o a la brasa (8 uds). Crujientes y tiernas.', 
-        precio: '21.00€',
-        sinGluten: true
-      },
-
-      // ARROCES POR ENCARGO
-      { 
-        categoria: 'Arroces (Por Encargo)', 
-        nombre: 'Arroz Caldoso con Bogavante', 
-        descripcion: 'Fondo intenso de marisco de roca y bogavante entero (Precio por persona, mínimo 2 pax).', 
-        precio: '24.00€/pax',
-        alergenos: ['Crustáceos'],
-        destacado: true,
-        sinGluten: true
-      },
-      { 
-        categoria: 'Arroces (Por Encargo)', 
-        nombre: 'Paella Marinera de Pescado y Marisco', 
-        descripcion: 'Sepia, gambón, mejillón y almejas con arroz bomba en grano suelto (mínimo 2 pax).', 
-        precio: '19.50€/pax',
-        alergenos: ['Moluscos', 'Crustáceos'],
-        sinGluten: true
-      },
-      { 
-        categoria: 'Arroces (Por Encargo)', 
-        nombre: 'Arroz de Montaña con Boletus y Secreto', 
-        descripcion: 'Elaborado con setas de la sierra y corte de cerdo ibérico a la brasa (mínimo 2 pax).', 
-        precio: '21.00€/pax',
-        sinGluten: true
-      },
-
-      // PESCADOS
-      { 
-        categoria: 'Pescados', 
-        nombre: 'Lubina de Estero a la Espalda', 
-        descripcion: 'Abierta al horno con sofrito tradicional de ajo, guindilla y vinagre de sidra.', 
-        precio: '21.00€',
-        alergenos: ['Pescado'],
-        sinGluten: true
-      },
-      { 
-        categoria: 'Pescados', 
-        nombre: 'Bacalao Confitado al Ajoarriero', 
-        descripcion: 'Lomo grueso desalado con pimientos asados en leña y salsa vizcaína.', 
-        precio: '22.50€',
-        alergenos: ['Pescado']
-      },
-
-      // POSTRES CASEROS
-      { 
-        categoria: 'Postres Caseros', 
-        nombre: 'Tarta de Queso Horneada', 
-        descripcion: 'Cremosa por dentro, base crujiente de galleta y toque tostado superficial.', 
-        precio: '6.50€',
-        alergenos: ['Lácteos', 'Huevo', 'Gluten'],
-        destacado: true
-      },
-      { 
-        categoria: 'Postres Caseros', 
-        nombre: 'Torrija Caramelizada en Pan Brioche', 
-        descripcion: 'Infusionada en leche con canela y cítricos, servida con bola de helado de turrón artesano.', 
-        precio: '7.00€',
-        alergenos: ['Lácteos', 'Huevo', 'Gluten'],
-        destacado: true
-      },
-      { 
-        categoria: 'Postres Caseros', 
-        nombre: 'Flan Casero de Huevo al Caramelo', 
-        descripcion: 'El clásico de toda la vida elaborado con huevos de campo y nata fresca.', 
-        precio: '5.50€',
-        alergenos: ['Lácteos', 'Huevo'],
-        sinGluten: true,
-        receta1973: true
-      }
-    ];
+    return CARTA_PARRA;
   }
 
   try {

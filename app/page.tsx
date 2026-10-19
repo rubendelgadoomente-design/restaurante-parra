@@ -67,16 +67,16 @@ export default function Home() {
             <p className="text-xs text-zinc-600 uppercase tracking-wider">Años de historia</p>
           </div>
           <div className="space-y-0.5">
-            <p className="text-2xl md:text-3xl font-serif font-bold text-amber-900">100%</p>
-            <p className="text-xs text-zinc-600 uppercase tracking-wider">Carne Guadarrama</p>
+            <p className="text-2xl md:text-3xl font-serif font-bold text-amber-900">IGP</p>
+            <p className="text-xs text-zinc-600 uppercase tracking-wider">Ternera Sierra de Guadarrama</p>
           </div>
           <div className="space-y-0.5">
             <p className="text-2xl md:text-3xl font-serif font-bold text-amber-900">1.800+</p>
             <p className="text-xs text-zinc-600 uppercase tracking-wider">Opiniones en Google</p>
           </div>
           <div className="space-y-0.5">
-            <p className="text-2xl md:text-3xl font-serif font-bold text-amber-900">0 km</p>
-            <p className="text-xs text-zinc-600 uppercase tracking-wider">Producto y proximidad</p>
+            <p className="text-2xl md:text-3xl font-serif font-bold text-amber-900">7:45</p>
+            <p className="text-xs text-zinc-600 uppercase tracking-wider">Abrimos para desayunar</p>
           </div>
         </div>
       </section>
@@ -141,7 +141,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-serif font-bold group-hover:text-amber-300 transition">Carnes de Guadarrama</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
-                  Chuletones de vaca madurada a la brasa, solomillo al foie, entrecot y paletilla de lechazo asada lentamente en su jugo.
+                  Chuletón de vaca madurada, solomillo y entrecot IGP Sierra de Guadarrama y paletilla de lechazo asada al estilo tradicional.
                 </p>
               </div>
               <div className="pt-6 border-t border-zinc-700/60 mt-6 flex justify-between items-center text-xs text-zinc-400">
@@ -157,7 +157,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-serif font-bold group-hover:text-amber-300 transition">Arroces Especiales</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
-                  Arroz caldoso con bogavante, paella de marisco o arroces de montaña. Elaborados en su punto óptimo exclusivamente por encargo.
+                  Arroz caldoso con bogavante, paella de mariscos o paella mixta. Elaborados en su punto exclusivamente por encargo.
                 </p>
               </div>
               <div className="pt-6 border-t border-zinc-700/60 mt-6 flex justify-between items-center text-xs text-zinc-400">
@@ -173,11 +173,11 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-serif font-bold group-hover:text-amber-300 transition">Cocina de Cuchara</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
-                  Judiones del Real con sacramentos, rabo de toro meloso estofado al vino tinto y sopa castellana tradicional con huevo escalfado.
+                  Judiones con matanza de pueblo, callos con morros y sopa castellana al estilo del marqués.
                 </p>
               </div>
               <div className="pt-6 border-t border-zinc-700/60 mt-6 flex justify-between items-center text-xs text-zinc-400">
-                <span>Receta de 1973</span>
+                <span>Cocina de siempre</span>
                 <span className="font-semibold text-amber-400">Tradición</span>
               </div>
             </div>
@@ -205,11 +205,11 @@ export default function Home() {
               </li>
               <li className="flex items-center gap-2">
                 <ShieldCheck size={18} className="text-amber-700 flex-shrink-0" />
-                <span>Paella Marinera de pescados y mariscos</span>
+                <span>Paella de mariscos (mínimo 2 personas)</span>
               </li>
               <li className="flex items-center gap-2">
                 <ShieldCheck size={18} className="text-amber-700 flex-shrink-0" />
-                <span>Arroz de montaña con setas y carnes de la sierra</span>
+                <span>Paella mixta (mínimo 2 personas)</span>
               </li>
             </ul>
             <div className="pt-2">
