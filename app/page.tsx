@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { ArrowRight, Flame, Beef, UtensilsCrossed, Star, Mountain, Castle, Clock, CalendarCheck, ShieldCheck } from 'lucide-react'
 import ReservationButton from '@/components/ReservationButton'
 import { SITE } from '@/lib/site'
@@ -8,8 +9,13 @@ export default function Home() {
       {/* 1. HERO INMERSIVO */}
       <section className="relative min-h-[90vh] flex items-center justify-center bg-zinc-950 text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-black/40 z-10" />
-        <div 
-          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center scale-105 animate-pulse duration-[10000ms] opacity-60" 
+        <Image
+          src="/img/portada.jpg"
+          alt="Restaurante Parra en Manzanares el Real"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover scale-105 animate-pulse duration-[10000ms] opacity-60"
         />
         
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto space-y-6 pt-16">
@@ -106,8 +112,12 @@ export default function Home() {
             </div>
           </div>
           <div className="relative h-[480px] rounded-lg overflow-hidden shadow-2xl">
-            <div 
-              className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format&fit=crop')] bg-cover bg-center hover:scale-105 transition-transform duration-700" 
+            <Image
+              src="/img/comedor.jpg"
+              alt="Comedor tradicional de Restaurante Parra"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-sm shadow-md border border-gray-100 flex items-center justify-between">
               <div>
@@ -220,8 +230,12 @@ export default function Home() {
             </div>
           </div>
           <div className="relative h-[420px] rounded-lg overflow-hidden shadow-xl border border-amber-900/10">
-            <div 
-              className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534080564583-6be75777b70a?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center" 
+            <Image
+              src="/img/arroz.jpg"
+              alt="Arroces especiales por encargo en Restaurante Parra"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
           </div>
         </div>

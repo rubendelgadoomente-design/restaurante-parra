@@ -7,6 +7,7 @@ import { SITE } from '@/lib/site'
 const ENLACES = [
   { href: '/', label: 'Inicio' },
   { href: '/carta', label: 'Nuestra carta' },
+  { href: '/grupos', label: 'Grupos y eventos' },
   { href: '/contacto', label: 'Ubicación y horario' },
 ]
 

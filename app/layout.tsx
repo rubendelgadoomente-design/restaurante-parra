@@ -96,6 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="space-x-8 hidden md:flex items-center">
                 <a href="/" className="text-sm uppercase tracking-wider font-medium text-gray-600 hover:text-black transition">Inicio</a>
                 <a href="/carta" className="text-sm uppercase tracking-wider font-medium text-gray-600 hover:text-black transition">Nuestra Carta</a>
+                <a href="/grupos" className="text-sm uppercase tracking-wider font-medium text-gray-600 hover:text-black transition">Grupos</a>
                 <a href="/contacto" className="text-sm uppercase tracking-wider font-medium text-gray-600 hover:text-black transition">Ubicación</a>
                 <ReservationButton
                   label="Reservar Mesa"
