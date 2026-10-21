@@ -11,11 +11,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-black/40 z-10" />
         <Image
           src="/img/portada.jpg"
-          alt="Restaurante Parra en Manzanares el Real"
+          alt="Carne asada a la brasa"
           fill
           priority
           sizes="100vw"
-          className="object-cover scale-105 animate-pulse duration-[10000ms] opacity-60"
+          className="object-cover scale-105 opacity-60"
         />
         
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto space-y-6 pt-16">
@@ -114,7 +114,7 @@ export default function Home() {
           <div className="relative h-[480px] rounded-lg overflow-hidden shadow-2xl">
             <Image
               src="/img/comedor.jpg"
-              alt="Comedor tradicional de Restaurante Parra"
+              alt="Interior de un comedor de restaurante"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover hover:scale-105 transition-transform duration-700"
@@ -232,7 +232,7 @@ export default function Home() {
           <div className="relative h-[420px] rounded-lg overflow-hidden shadow-xl border border-amber-900/10">
             <Image
               src="/img/arroz.jpg"
-              alt="Arroces especiales por encargo en Restaurante Parra"
+              alt="Paella de marisco servida en paellera"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"

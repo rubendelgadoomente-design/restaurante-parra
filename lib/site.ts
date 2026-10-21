@@ -20,6 +20,8 @@ export const SITE = {
   // VERIFICAR con la ficha de Google antes de publicar.
   valoracion: { nota: 4.5, resenas: 1900 },
   instagram: 'https://www.instagram.com/parra_restaurante_manzanares/',
+  // Número de WhatsApp para reservas o consultas de grupo (por defecto null hasta confirmar con Parra).
+  whatsapp: null as string | null,
   // Módulo de reservas real (el que enlaza la web actual). Se puede sobrescribir con la variable de entorno.
   coverManagerUrl:
     process.env.NEXT_PUBLIC_COVERMANAGER_URL ||
