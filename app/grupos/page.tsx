@@ -176,7 +176,7 @@ export default function GruposPage() {
           <div className="pt-2 border-t border-amber-900/10 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-2">
             <span>Para mesas habituales de comensales individuales o familias:</span>
             <ReservationButton
-              label="Reserva online aquí (mesas hasta 8 personas) →"
+              label={`Reserva online aquí (hasta ${SITE.maxReservaOnline} personas) →`}
               className="font-semibold text-amber-900 hover:text-amber-700 underline bg-transparent p-0 border-0 cursor-pointer text-xs"
             />
           </div>
