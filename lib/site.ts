@@ -27,6 +27,8 @@ export const SITE = {
   // Grupos (confirmado con el dueño el 24/10/2026).
   grupoMaximo: 30,
   senalGrupos: '5 a 10 € por persona',
+  // Menú del día (confirmado con el dueño el 24/10/2026).
+  menuDelDia: { dias: 'de martes a viernes', precio: '16,90 €' },
   // Antelación para encargar asados (paletilla de lechazo) en la reserva.
   antelacionAsados: '24 horas',
   // Módulo de reservas real (el que enlaza la web actual). Se puede sobrescribir con la variable de entorno.
@@ -61,7 +63,7 @@ export const HORARIO_RESUMEN = [
   'Martes a jueves: 8:00 – 17:00',
   'Viernes y sábado: 8:00 – 23:30',
   'Domingo: 8:30 – 17:00',
-  'Menú del día de martes a viernes',
+  'Menú del día de martes a viernes: 16,90 €',
 ]
 
 export const direccionCompleta = `${SITE.calle}, ${SITE.codigoPostal} ${SITE.localidad} (${SITE.provincia})`

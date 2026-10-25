@@ -183,7 +183,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-serif font-bold group-hover:text-amber-300 transition">Cocina de Cuchara</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
-                  Judiones con matanza de pueblo, callos con morros y sopa castellana al estilo del marqués.
+                  Rabo de toro estofado al vino tinto, alcachofas rellenas de rabo de toro, judiones con matanza y sopa castellana.
                 </p>
               </div>
               <div className="pt-6 border-t border-zinc-700/60 mt-6 flex justify-between items-center text-xs text-zinc-400">

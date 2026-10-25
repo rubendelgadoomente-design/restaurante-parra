@@ -36,7 +36,7 @@ export default async function CartaPage() {
           </div>
         )}
 
-        {/* Nuestros imprescindibles (solo se muestra cuando haya fotos en lib/destacados.ts) */}
+        {/* Nuestros imprescindibles (lib/destacados.ts). La foto solo aparece si el plato tiene imagen. */}
         {PLATOS_DESTACADOS.length > 0 && (
           <section className="space-y-6">
             <div className="text-center space-y-1">
@@ -53,15 +53,19 @@ export default async function CartaPage() {
                   key={idx}
                   className="bg-white rounded-lg border border-gray-200/80 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col"
                 >
-                  <div className="relative h-44 w-full bg-zinc-100">
-                    <Image
-                      src={plato.imagen}
-                      alt={plato.nombre}
-                      fill
-                      sizes="(max-width: 768px) 50vw, 33vw"
-                      className="object-cover"
-                    />
-                  </div>
+                  {plato.imagen ? (
+                    <div className="relative h-44 w-full bg-zinc-100">
+                      <Image
+                        src={plato.imagen}
+                        alt={plato.nombre}
+                        fill
+                        sizes="(max-width: 768px) 50vw, 33vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-1 w-full bg-amber-500" />
+                  )}
                   <div className="p-4 flex-1 flex flex-col justify-between space-y-2">
                     <div>
                       <h3 className="font-serif font-bold text-base text-zinc-900">{plato.nombre}</h3>
