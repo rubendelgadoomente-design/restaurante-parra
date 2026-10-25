@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import { MenuItem } from '@/lib/menu'
 import { Search, Sparkles, AlertCircle, Clock, Wheat, History, Flame } from 'lucide-react'
 import ReservationButton from './ReservationButton'
+import { SITE } from '@/lib/site'
 
 interface MenuExplorerProps {
   initialItems: MenuItem[]
@@ -127,11 +128,13 @@ export default function MenuExplorer({ initialItems }: MenuExplorerProps) {
       </div>
 
       {/* 2. AVISO DE ARROCES POR ENCARGO */}
-      {(selectedCategory === 'Todas' || selectedCategory === 'Arroces (Por Encargo)') && (
+      {(selectedCategory === 'Todas' || selectedCategory.toLowerCase().startsWith('arroces')) && (
         <div className="bg-amber-50 border border-amber-200 rounded-sm p-4 flex items-start gap-3 text-amber-950 text-xs md:text-sm">
           <Clock size={18} className="text-amber-700 flex-shrink-0 mt-0.5" />
           <div>
-            <strong className="font-semibold">Política de Arroces:</strong> Por encargo, mínimo dos personas. Indícalo en las observaciones de tu reserva o llámanos.
+            <strong className="font-semibold">Arroces por encargo</strong> (mínimo dos personas): encárgalos llamando al{' '}
+            <a href={SITE.telefonoHref} className="font-semibold underline">{SITE.telefono}</a>, para comer aquí o para llevar.
+            {' '}<strong className="font-semibold">Paletilla de lechazo:</strong> encárgala al reservar con {SITE.antelacionAsados} de antelación.
           </div>
         </div>
       )}
@@ -227,7 +230,7 @@ export default function MenuExplorer({ initialItems }: MenuExplorerProps) {
       <div className="bg-zinc-900 text-white p-8 md:p-12 rounded-lg text-center space-y-6">
         <h3 className="text-3xl font-serif font-bold">¿Listo para saborearlo?</h3>
         <p className="text-zinc-400 text-sm md:text-base max-w-lg mx-auto">
-          Reserva mesa con confirmación inmediata en sala. Si deseas arroz, indícalo al reservar y lo tendremos en su punto exacto.
+          Reserva mesa con confirmación inmediata. ¿Paletilla? Indícala en la reserva con {SITE.antelacionAsados} de antelación. ¿Arroz? Llámanos al {SITE.telefono} para encargarlo.
         </p>
         <div className="max-w-xs mx-auto">
           <ReservationButton label="Reservar Mesa Ahora" />

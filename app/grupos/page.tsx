@@ -54,10 +54,10 @@ export default function GruposPage() {
             <h2 className="font-serif font-bold text-xl text-zinc-900">Espacio y Capacidad</h2>
             <div className="text-sm text-zinc-600 space-y-2 leading-relaxed">
               <p>
-                Grupos: consúltanos capacidad y disponibilidad.
+                Grupos de hasta {SITE.grupoMaximo} personas; si sois más, consúltanos. Tenemos dos comedores y un salón que se puede reservar en exclusiva.
               </p>
               <p className="text-xs text-zinc-500">
-                Comedor tradicional en el casco histórico de Manzanares el Real.
+                La barra y la terraza no se reservan: quedan libres para tomar algo.
               </p>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function GruposPage() {
             <h2 className="font-serif font-bold text-xl text-zinc-900">Menús a Medida</h2>
             <div className="text-sm text-zinc-600 space-y-2 leading-relaxed">
               <p>
-                Propuestas cerradas con entrantes al centro, plato principal a elegir (carnes de Guadarrama, arroces por encargo o guisos) y postres caseros.
+                No trabajamos con un menú cerrado: preparamos la propuesta a medida de cada grupo con platos de nuestra carta, como carnes de Guadarrama, paletilla de lechazo o arroces.
               </p>
               <p className="text-xs text-amber-800 bg-amber-50 p-2 rounded">
                 Cuéntanos al reservar si hay alergias, intolerancias o dietas especiales y te indicaremos qué opciones hay.
@@ -96,7 +96,7 @@ export default function GruposPage() {
               </p>
             </div>
             <p className="text-xs text-zinc-500">
-              Para coordinar menú y fecha, llámanos o envíanos un correo con antelación.
+              Para confirmar las reservas de grupos grandes pedimos una señal de {SITE.senalGrupos}.
             </p>
           </div>
         </div>

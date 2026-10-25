@@ -65,12 +65,15 @@ export default function ReservationModal() {
             <div className="p-3 border-t border-gray-100 text-xs text-zinc-600 space-y-2">
               <p className="flex items-start gap-1.5">
                 <Info size={14} className="mt-0.5 flex-shrink-0 text-amber-700" />
-                ¿Quieres arroz? Se prepara por encargo: indícalo en las observaciones de la reserva o
-                llámanos.
+                <span>
+                  <strong>¿Paletilla de lechazo?</strong> Indícala en las observaciones con {SITE.antelacionAsados} de
+                  antelación. <strong>¿Arroz?</strong> Encárgalo llamando al{' '}
+                  <a href={SITE.telefonoHref} className="underline">{SITE.telefono}</a>.
+                </span>
               </p>
               <div className="flex items-center justify-between gap-2">
                 <a href={SITE.telefonoHref} className="flex items-center gap-1 font-semibold text-zinc-900">
-                  <Phone size={13} /> Grupos: {SITE.telefono}
+                  <Phone size={13} /> Más de {SITE.maxReservaOnline} personas: {SITE.telefono}
                 </a>
                 <a
                   href={coverUrl}

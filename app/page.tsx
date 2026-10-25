@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ArrowRight, Flame, Beef, UtensilsCrossed, Star, Mountain, Castle, Clock, CalendarCheck, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Flame, Beef, UtensilsCrossed, Star, Mountain, Castle, Clock, CalendarCheck, ShieldCheck, Phone } from 'lucide-react'
 import ReservationButton from '@/components/ReservationButton'
 import { SITE } from '@/lib/site'
 
@@ -81,7 +81,7 @@ export default function Home() {
             <p className="text-xs text-zinc-600 uppercase tracking-wider">Opiniones en Google</p>
           </div>
           <div className="space-y-0.5">
-            <p className="text-2xl md:text-3xl font-serif font-bold text-amber-900">7:45</p>
+            <p className="text-2xl md:text-3xl font-serif font-bold text-amber-900">8:00</p>
             <p className="text-xs text-zinc-600 uppercase tracking-wider">Abrimos para desayunar</p>
           </div>
         </div>
@@ -195,7 +195,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. MÓDULO ALTO VALOR: ARROCES POR ENCARGO (AUMENTO DE TICKET Y ORGANIZACIÓN) */}
+      {/* 5. ARROCES POR ENCARGO: se encargan por teléfono (el dueño quiere controlarlos directamente) */}
       <section className="py-24 px-4 bg-[#f6f2ea] border-y border-amber-900/10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -203,10 +203,10 @@ export default function Home() {
               <Clock size={14} /> Recomendación de la Casa
             </div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-zinc-900 leading-tight">
-              ¿Vienes por nuestros arroces? Encárgalo al reservar
+              ¿Vienes por nuestros arroces? Encárgalo con una llamada
             </h2>
             <p className="text-zinc-700 text-lg leading-relaxed">
-              Un arroz impecable requiere su tiempo de fondo, sofrito y reposo. Para garantizar que tu mesa disfrute del arroz recién sacado del fuego sin esperas innecesarias en sala, los preparamos <strong>exclusivamente bajo encargo previo</strong>.
+              Un arroz impecable requiere su tiempo de fondo, sofrito y reposo. Para garantizar que tu mesa disfrute del arroz recién sacado del fuego sin esperas innecesarias en sala, los preparamos <strong>exclusivamente bajo encargo previo</strong>. Llámanos para encargarlo, tanto para comer aquí como para llevar.
             </p>
             <ul className="space-y-3 text-sm text-zinc-700">
               <li className="flex items-center gap-2">
@@ -223,10 +223,12 @@ export default function Home() {
               </li>
             </ul>
             <div className="pt-2">
-              <ReservationButton
-                label="Reservar mesa e indicar el encargo"
-                className="inline-block bg-zinc-900 hover:bg-zinc-800 text-white px-6 py-3.5 rounded-sm font-bold text-xs uppercase tracking-widest transition"
-              />
+              <a
+                href={SITE.telefonoHref}
+                className="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white px-6 py-3.5 rounded-sm font-bold text-xs uppercase tracking-widest transition"
+              >
+                <Phone size={14} /> Encargar arroz · {SITE.telefono}
+              </a>
             </div>
           </div>
           <div className="relative h-[420px] rounded-lg overflow-hidden shadow-xl border border-amber-900/10">
@@ -236,6 +238,29 @@ export default function Home() {
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 5b. ASADOS POR ENCARGO: se piden al reservar en CoverManager, con 24 h de antelación */}
+      <section className="py-20 px-4 bg-zinc-900 text-white">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <div className="inline-flex items-center gap-2 bg-amber-500 text-zinc-950 px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-wider">
+            <Flame size={14} /> Asados de la casa
+          </div>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold leading-tight">
+            Paletilla de lechazo asada al estilo tradicional
+          </h2>
+          <p className="text-zinc-300 text-lg leading-relaxed max-w-2xl mx-auto">
+            Asada despacio, como siempre se ha hecho en Castilla. Para tenerla lista a tu llegada,
+            encárgala al reservar con <strong className="text-amber-300">{SITE.antelacionAsados} de antelación</strong>:
+            indícalo en las observaciones de tu reserva.
+          </p>
+          <div className="pt-2">
+            <ReservationButton
+              label="Reservar y encargar paletilla"
+              className="inline-block bg-amber-500 hover:bg-amber-400 text-zinc-950 px-8 py-3.5 rounded-sm font-bold text-xs uppercase tracking-widest transition shadow-md"
             />
           </div>
         </div>

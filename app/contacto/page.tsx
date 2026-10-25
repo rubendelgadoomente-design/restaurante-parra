@@ -5,7 +5,7 @@ import { SITE, HORARIO_RESUMEN } from '@/lib/site'
 export const metadata = {
   title: 'Ubicación, horario y contacto',
   alternates: { canonical: '/contacto' },
-  description: 'Cómo llegar a Restaurante Parra en Calle de los Panaderos 13, Manzanares el Real. Horarios de cocina, teléfonos de reservas y aparcamientos cercanos.',
+  description: 'Cómo llegar a Restaurante Parra en Calle de los Panaderos 13, Manzanares el Real. Horario, teléfonos de reservas y aparcamientos públicos cercanos.',
 }
 
 export default function ContactoPage() {
@@ -94,7 +94,9 @@ export default function ContactoPage() {
               <span>¿Vienes en coche el fin de semana?</span>
             </div>
             <p className="text-sm text-zinc-600 max-w-2xl leading-relaxed">
-              En Manzanares el Real la afluencia suele ser alta en sábados y domingos. Dispones del <strong>Parking Público del Castillo</strong> a tan solo 4 minutos a pie y zonas de estacionamiento en el entorno del río.
+              {/* VERIFICAR con el dueño qué aparcamientos recomienda y a cuántos minutos a pie están. */}
+              Junto al restaurante no hay aparcamiento y los fines de semana el centro se llena. Te recomendamos dejar el coche en
+              los <strong>aparcamientos públicos del pueblo</strong>, como el del Castillo, y venir dando un paseo.
             </p>
           </div>
           <div className="w-full md:w-auto">

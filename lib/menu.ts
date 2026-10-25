@@ -51,7 +51,7 @@ const CARTA_PARRA: MenuItem[] = [
     {"categoria": "Carnes y parrilla", "nombre": "Chuletón de vaca madurada trinchado con hueso", "descripcion": "Según peso", "precio": "69,00 €/kg"},
     {"categoria": "Carnes y parrilla", "nombre": "Lomo de vaca madurada trinchado, sin hueso", "descripcion": "500 g aprox.", "precio": "39,00 €"},
     {"categoria": "Carnes y parrilla", "nombre": "Solomillo especial de ternera IGP Sierra de Guadarrama", "descripcion": "", "precio": "29,90 €"},
-    {"categoria": "Carnes y parrilla", "nombre": "Paletilla de lechazo asada al estilo tradicional", "descripcion": "", "precio": "29,90 €"},
+    {"categoria": "Carnes y parrilla", "nombre": "Paletilla de lechazo asada al estilo tradicional", "descripcion": "Encárgala al reservar con 24 h de antelación", "precio": "29,90 €"},
     {"categoria": "Carnes y parrilla", "nombre": "Rabo de toro estofado al vino tinto", "descripcion": "", "precio": "25,50 €"},
     {"categoria": "Carnes y parrilla", "nombre": "Chuletitas de cordero lechal con su guarnición", "descripcion": "6 piezas", "precio": "27,00 €"},
     {"categoria": "Carnes y parrilla", "nombre": "Cachopo de ternera", "descripcion": "Jamón ibérico y queso de Miraflores", "precio": "24,90 €"},
