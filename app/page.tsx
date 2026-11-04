@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { ArrowRight, Flame, Beef, UtensilsCrossed, Star, Mountain, Castle, Clock, CalendarCheck, ShieldCheck, Phone } from 'lucide-react'
 import ReservationButton from '@/components/ReservationButton'
 import { SITE } from '@/lib/site'
+import { GALERIA } from '@/lib/galeria'
 
 export default function Home() {
   return (
@@ -10,8 +11,8 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center justify-center bg-zinc-950 text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-black/40 z-10" />
         <Image
-          src="/img/portada.jpg"
-          alt="Carne asada a la brasa"
+          src="/img/local/fachada.webp"
+          alt="Fachada y terraza de Restaurante Parra en Manzanares el Real"
           fill
           priority
           sizes="100vw"
@@ -113,8 +114,8 @@ export default function Home() {
           </div>
           <div className="relative h-[480px] rounded-lg overflow-hidden shadow-2xl">
             <Image
-              src="/img/comedor.jpg"
-              alt="Interior de un comedor de restaurante"
+              src="/img/local/comedor.webp"
+              alt="Comedor de Restaurante Parra con mesas vestidas y botellero de vinos"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover hover:scale-105 transition-transform duration-700"
@@ -129,6 +130,30 @@ export default function Home() {
               </span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 3b. GALERÍA: fotos reales del local (lib/galeria.ts) */}
+      <section className="pb-24 px-4 max-w-6xl mx-auto">
+        <div className="text-center space-y-3 mb-10">
+          <span className="text-xs font-bold uppercase tracking-widest text-amber-800">Nuestros espacios</span>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold">Comedor, barra y terraza</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {GALERIA.map((foto) => (
+            <figure key={foto.src} className="relative aspect-[3/2] rounded-lg overflow-hidden shadow-md">
+              <Image
+                src={foto.src}
+                alt={foto.alt}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover"
+              />
+              <figcaption className="absolute bottom-3 left-3 bg-white/90 text-zinc-900 text-xs font-semibold px-3 py-1 rounded-full">
+                {foto.zona}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
