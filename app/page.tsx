@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { ArrowRight, Flame, Beef, UtensilsCrossed, Star, Mountain, Castle, Clock, CalendarCheck, ShieldCheck, Phone } from 'lucide-react'
 import ReservationButton from '@/components/ReservationButton'
 import { SITE } from '@/lib/site'
-import { GALERIA } from '@/lib/galeria'
+import { RECORRIDO, COMEDORES } from '@/lib/galeria'
 
 export default function Home() {
   return (
@@ -133,27 +133,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3b. GALERÍA: fotos reales del local (lib/galeria.ts) */}
-      <section className="pb-24 px-4 max-w-6xl mx-auto">
-        <div className="text-center space-y-3 mb-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-amber-800">Nuestros espacios</span>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold">Comedor, barra y terraza</h2>
+      {/* 3b. RECORRIDO: de la calle a los comedores (lib/galeria.ts) */}
+      <section id="el-local" className="pb-24 px-4 max-w-6xl mx-auto space-y-16">
+        <div className="text-center space-y-3">
+          <span className="text-xs font-bold uppercase tracking-widest text-amber-800">Conoce la casa</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold">De la calle a tu mesa</h2>
+          <p className="text-zinc-600 max-w-2xl mx-auto">
+            Terraza, barra y dos comedores: así es Restaurante Parra por dentro.
+          </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {GALERIA.map((foto) => (
-            <figure key={foto.src} className="relative aspect-[3/2] rounded-lg overflow-hidden shadow-md">
-              <Image
-                src={foto.src}
-                alt={foto.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover"
-              />
-              <figcaption className="absolute bottom-3 left-3 bg-white/90 text-zinc-900 text-xs font-semibold px-3 py-1 rounded-full">
-                {foto.zona}
-              </figcaption>
-            </figure>
+
+        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          {RECORRIDO.map((paso, i) => (
+            <li key={paso.src} className="space-y-3">
+              <div className="relative aspect-[3/2] lg:aspect-[4/5] rounded-lg overflow-hidden shadow-md">
+                <Image
+                  src={paso.src}
+                  alt={paso.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                  className="object-cover"
+                />
+                <span className="absolute top-3 left-3 w-8 h-8 rounded-full bg-amber-500 text-zinc-950 font-bold text-sm flex items-center justify-center shadow">
+                  {i + 1}
+                </span>
+              </div>
+              <div>
+                <h3 className="font-serif font-bold text-lg">{paso.titulo}</h3>
+                <p className="text-sm text-zinc-600 leading-relaxed">{paso.texto}</p>
+              </div>
+            </li>
           ))}
+        </ol>
+
+        <div className="space-y-8">
+          <div className="text-center space-y-3">
+            <h3 className="text-3xl md:text-4xl font-serif font-bold">Dos comedores</h3>
+            <p className="text-zinc-600 max-w-2xl mx-auto">
+              Muchos clientes no lo saben: además de la barra y la terraza, tenemos dos comedores para comer con calma.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {COMEDORES.map((c) => (
+              <figure key={c.src} className="space-y-3">
+                <div className="relative aspect-[3/2] rounded-lg overflow-hidden shadow-xl">
+                  <Image
+                    src={c.src}
+                    alt={c.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption>
+                  <p className="font-serif font-bold text-xl">{c.nombre}</p>
+                  <p className="text-sm text-zinc-600">{c.texto}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <div className="text-center">
+            <a href="/grupos" className="inline-flex items-center gap-2 font-bold text-sm tracking-wider uppercase text-amber-900 hover:text-amber-700 transition">
+              Comidas de grupo y celebraciones <ArrowRight size={16} />
+            </a>
+          </div>
         </div>
       </section>
 

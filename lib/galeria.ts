@@ -1,16 +1,63 @@
-export type FotoGaleria = {
+export type Foto = {
   src: string
   alt: string
-  zona: 'Comedor' | 'Barra' | 'Terraza'
+}
+
+export type PasoRecorrido = Foto & {
+  titulo: string
+  texto: string
 }
 
 // Fotos reales del local que pasó el dueño (31/10 y 02/11/2026), convertidas a WebP sin datos EXIF/GPS.
 // Fotos sin clientes reconocibles. No usar aquí imágenes generadas o retocadas con IA.
-export const GALERIA: FotoGaleria[] = [
-  { src: '/img/local/comedor-bodega.webp', alt: 'Comedor de Restaurante Parra con mesas vestidas y botellero de vinos', zona: 'Comedor' },
-  { src: '/img/local/comedor-salon.webp', alt: 'Segundo comedor con paredes claras, apliques de forja y mesas vestidas', zona: 'Comedor' },
-  { src: '/img/local/barra.webp', alt: 'Barra de madera del bar de Restaurante Parra con taburetes', zona: 'Barra' },
-  { src: '/img/local/barra-cafetera.webp', alt: 'Barra con cafetera y copas colgadas sobre la barra', zona: 'Barra' },
-  { src: '/img/local/terraza-calle.webp', alt: 'Terraza en la calle de los Panaderos con la sierra al fondo', zona: 'Terraza' },
-  { src: '/img/local/terraza.webp', alt: 'Terraza junto a la entrada con el toldo de Restaurante Parra', zona: 'Terraza' },
+
+// Recorrido en orden, de la calle a la barra: el dueño quiere que se vea el negocio entero.
+export const RECORRIDO: PasoRecorrido[] = [
+  {
+    titulo: 'La calle',
+    texto: 'En la calle de los Panaderos, con la sierra al fondo.',
+    src: '/img/local/terraza-calle.webp',
+    alt: 'Calle de los Panaderos con la terraza de Restaurante Parra y la sierra al fondo',
+  },
+  {
+    titulo: 'La terraza',
+    texto: 'Mesas al aire libre bajo el toldo. La terraza no se reserva.',
+    src: '/img/local/terraza.webp',
+    alt: 'Terraza junto a la entrada con el toldo de Restaurante Parra',
+  },
+  {
+    titulo: 'La entrada',
+    texto: 'La puerta de siempre, con el letrero de la casa.',
+    src: '/img/local/entrada.webp',
+    alt: 'Entrada de Restaurante Parra con el letrero iluminado y puertas de madera',
+  },
+  {
+    titulo: 'La barra',
+    texto: 'Para el café, el aperitivo o tomar algo. La barra no se reserva.',
+    src: '/img/local/barra.webp',
+    alt: 'Barra de madera del bar de Restaurante Parra con taburetes',
+  },
+  {
+    titulo: 'Subida a los comedores',
+    texto: 'Al fondo del bar, la escalera sube hacia los comedores.',
+    src: '/img/local/barra-escalera.webp',
+    alt: 'Escalera iluminada al fondo del bar que sube a los comedores',
+  },
+]
+
+// Los dos comedores (mucha gente no sabe que hay dos).
+// PENDIENTE confirmar con el dueño qué foto es de cada comedor y cómo los llaman en casa.
+export const COMEDORES: (Foto & { nombre: string; texto: string })[] = [
+  {
+    nombre: 'Comedor de la bodega',
+    texto: 'Rodeado de vinos, con vigas de madera y ladrillo visto.',
+    src: '/img/local/comedor-bodega.webp',
+    alt: 'Comedor con mesas vestidas y botellero de vinos de pared a pared',
+  },
+  {
+    nombre: 'Segundo comedor',
+    texto: 'Con su propio ambiente, para comer con calma o celebrar en grupo.',
+    src: '/img/local/comedor-2.webp',
+    alt: 'Segundo comedor con lámpara de forja, cuadros y mesas vestidas',
+  },
 ]
