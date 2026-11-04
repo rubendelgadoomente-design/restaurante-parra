@@ -46,11 +46,11 @@ export const RECORRIDO: PasoRecorrido[] = [
 ]
 
 // Los dos comedores (mucha gente no sabe que hay dos).
-// PENDIENTE confirmar con el dueño qué foto es de cada comedor y cómo los llaman en casa.
+// Los comedores no tienen nombre propio (confirmado por el dueño, 04/11/2026).
 export const COMEDORES: (Foto & { nombre: string; texto: string })[] = [
   {
-    nombre: 'Comedor de la bodega',
-    texto: 'Rodeado de vinos, con vigas de madera y ladrillo visto.',
+    nombre: 'Primer comedor',
+    texto: 'Junto a la bodega, con vigas de madera y ladrillo visto.',
     src: '/img/local/comedor-bodega.webp',
     alt: 'Comedor con mesas vestidas y botellero de vinos de pared a pared',
   },
