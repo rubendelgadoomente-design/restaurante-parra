@@ -8,13 +8,12 @@ export default function AvisoLegal() {
     <LegalPage titulo="Aviso legal">
       <p>En cumplimiento del artículo 10 de la Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE), se informa de los datos del titular de este sitio web:</p>
       <ul className="list-disc pl-5 space-y-1">
-        {/* PENDIENTE: completar con los datos reales que facilite Parra */}
-        <li>Titular: [PENDIENTE: razón social o nombre del titular]</li>
-        <li>NIF/CIF: [PENDIENTE]</li>
+        <li>Titular: {SITE.razonSocial}</li>
+        <li>NIF: {SITE.nif}</li>
         <li>Domicilio: {direccionCompleta}</li>
         <li>Teléfono: {SITE.telefono}</li>
         <li>Email: {SITE.email}</li>
-        <li>[Si es sociedad: datos de inscripción en el Registro Mercantil]</li>
+        {/* PENDIENTE: datos de inscripción en el Registro Mercantil (tomo, folio, hoja), obligatorios por ser S.L. (art. 10 LSSI). */}
       </ul>
       <h2>Uso del sitio web</h2>
       <p>El acceso a este sitio web es gratuito y atribuye la condición de usuario, que se compromete a hacer un uso adecuado de sus contenidos.</p>

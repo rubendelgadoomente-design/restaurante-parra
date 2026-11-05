@@ -4,9 +4,11 @@
 
 export const SITE = {
   nombre: 'Restaurante Parra',
+  // Titular de la web (tarjeta de identificación fiscal de la AEAT que pasó el dueño el 05/11/2026).
+  razonSocial: 'Restaurante Parra Manzanares S.L.',
+  nif: 'B88768619',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://restauranteparra.es',
-  // La web actual y su carta dicen "C. de los Panaderos, 13"; GastroRanking dice 15.
-  // VERIFICAR con la ficha de Google.
+  // Confirmado con la tarjeta de NIF (05/11/2026): Calle de los Panaderos, 13.
   calle: 'Calle de los Panaderos, 13',
   codigoPostal: '28410',
   localidad: 'Manzanares el Real',

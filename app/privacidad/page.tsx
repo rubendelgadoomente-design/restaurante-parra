@@ -6,7 +6,7 @@ export const metadata = { title: 'Política de privacidad', alternates: { canoni
 export default function Privacidad() {
   return (
     <LegalPage titulo="Política de privacidad">
-      <p>Responsable del tratamiento: [PENDIENTE: razón social y NIF], {SITE.calle}, {SITE.codigoPostal} {SITE.localidad}. Contacto: {SITE.email}.</p>
+      <p>Responsable del tratamiento: {SITE.razonSocial} (NIF {SITE.nif}), {SITE.calle}, {SITE.codigoPostal} {SITE.localidad}. Contacto: {SITE.email}.</p>
       <h2>Qué datos tratamos y para qué</h2>
       <p>Los datos que facilitas al reservar mesa (nombre, teléfono, email, número de comensales y observaciones) se usan únicamente para gestionar tu reserva. La base legal es la ejecución de la reserva que solicitas.</p>
       <p>Las reservas se gestionan con CoverManager, que trata los datos por cuenta del restaurante.</p>

@@ -1,5 +1,5 @@
 // Plantilla para las páginas legales. El texto definitivo debe revisarlo Parra
-// (o su gestoría): faltan la razón social y el NIF del titular.
+// (o su gestoría). Falta el dato de inscripción en el Registro Mercantil.
 export default function LegalPage({ titulo, children }: { titulo: string; children: React.ReactNode }) {
   return (
     <main className="min-h-screen bg-[#fdfbf7] pt-16 pb-24 px-4">
