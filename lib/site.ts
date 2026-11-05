@@ -67,3 +67,32 @@ export const HORARIO_RESUMEN = [
 ]
 
 export const direccionCompleta = `${SITE.calle}, ${SITE.codigoPostal} ${SITE.localidad} (${SITE.provincia})`
+
+// Aparcamientos públicos que recomienda el dueño (05/11/2026). Los dos son gratuitos.
+// "busqueda" es lo que se manda a Google Maps; comprobar que cada enlace abre el sitio correcto.
+export type Aparcamiento = { nombre: string; direccion: string; nota: string; busqueda: string }
+
+export const APARCAMIENTOS: Aparcamiento[] = [
+  {
+    nombre: 'Aparcamiento público gratuito de la calle de Colmenar',
+    direccion: 'Calle de Colmenar, 3',
+    nota: 'Gratuito y abierto las 24 horas.',
+    busqueda: 'Aparcamiento público gratuito, Calle de Colmenar 3, 28410 Manzanares el Real',
+  },
+  {
+    nombre: 'Parking público municipal de la avenida de Madrid',
+    direccion: 'Avenida de Madrid con calle de Casa Grande',
+    nota: 'Municipal, entrada libre y gratuita hasta completar aforo.',
+    busqueda: 'Aparcamiento Público Avenida de Madrid Calle de Casa Grande, 28410 Manzanares el Real',
+  },
+]
+
+const destinoMaps = `${SITE.nombre}, ${SITE.calle}, ${SITE.codigoPostal} ${SITE.localidad}`
+
+// Enlace para llegar en coche al aparcamiento (desde donde esté el usuario).
+export const rutaAlAparcamiento = (a: Aparcamiento) =>
+  `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(a.busqueda)}&travelmode=driving`
+
+// Enlace con la ruta a pie desde el aparcamiento hasta el restaurante.
+export const rutaAPieAlRestaurante = (a: Aparcamiento) =>
+  `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(a.busqueda)}&destination=${encodeURIComponent(destinoMaps)}&travelmode=walking`

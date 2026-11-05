@@ -1,6 +1,6 @@
-import { MapPin, Phone, Clock, Car, Navigation } from 'lucide-react'
+import { MapPin, Phone, Clock, Car, Navigation, Footprints } from 'lucide-react'
 import ReservationButton from '@/components/ReservationButton'
-import { SITE, HORARIO_RESUMEN } from '@/lib/site'
+import { SITE, HORARIO_RESUMEN, APARCAMIENTOS, rutaAlAparcamiento, rutaAPieAlRestaurante } from '@/lib/site'
 
 export const metadata = {
   title: 'Ubicación, horario y contacto',
@@ -86,23 +86,56 @@ export default function ContactoPage() {
           </div>
         </div>
 
-        {/* Sección: Dónde aparcar (Clave de valor local para el turista) */}
-        <div className="bg-amber-950/5 border border-amber-900/10 rounded-lg p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        {/* Sección: Dónde aparcar. Aparcamientos que recomienda el dueño (lib/site.ts) */}
+        <section id="aparcar" className="bg-amber-950/5 border border-amber-900/10 rounded-lg p-6 md:p-8 space-y-6">
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-amber-900 font-serif font-bold text-lg">
-              <Car size={20} />
-              <span>¿Vienes en coche el fin de semana?</span>
-            </div>
+            <h2 className="flex items-center gap-2 text-amber-900 font-serif font-bold text-xl">
+              <Car size={20} /> Dónde aparcar
+            </h2>
             <p className="text-sm text-zinc-600 max-w-2xl leading-relaxed">
-              {/* VERIFICAR con el dueño qué aparcamientos recomienda y a cuántos minutos a pie están. */}
-              Junto al restaurante no hay aparcamiento y los fines de semana el centro se llena. Te recomendamos dejar el coche en
-              los <strong>aparcamientos públicos del pueblo</strong>, como el del Castillo, y venir dando un paseo.
+              Junto al restaurante no hay aparcamiento y los fines de semana el centro se llena. Te recomendamos dejar el coche
+              en uno de estos dos aparcamientos públicos gratuitos y venir dando un paseo.
             </p>
           </div>
-          <div className="w-full md:w-auto">
-            <ReservationButton label="Asegurar mi mesa" className="w-full md:w-auto bg-zinc-900 hover:bg-zinc-800 text-white px-6 py-3 rounded-sm font-bold text-xs uppercase tracking-wider transition" />
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {APARCAMIENTOS.map((a) => (
+              <div key={a.nombre} className="bg-white border border-gray-200 rounded-lg p-5 space-y-4 shadow-sm">
+                <div className="space-y-1">
+                  <h3 className="font-serif font-bold text-lg text-zinc-900">{a.nombre}</h3>
+                  <p className="text-sm text-zinc-600">{a.direccion}</p>
+                  <p className="text-xs text-zinc-500">{a.nota}</p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a
+                    href={rutaAlAparcamiento(a)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-umami-event="Ruta aparcamiento"
+                    data-umami-event-aparcamiento={a.nombre}
+                    className="inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white px-4 py-2.5 rounded-sm font-bold text-xs uppercase tracking-wider transition"
+                  >
+                    <Navigation size={14} /> Ir al parking
+                  </a>
+                  <a
+                    href={rutaAPieAlRestaurante(a)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-umami-event="Ruta a pie al restaurante"
+                    data-umami-event-aparcamiento={a.nombre}
+                    className="inline-flex items-center justify-center gap-2 border border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white px-4 py-2.5 rounded-sm font-bold text-xs uppercase tracking-wider transition"
+                  >
+                    <Footprints size={14} /> Ruta a pie hasta Parra
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
+
+          <div>
+            <ReservationButton label="Asegurar mi mesa" className="w-full md:w-auto bg-amber-500 hover:bg-amber-400 text-zinc-950 px-6 py-3 rounded-sm font-bold text-xs uppercase tracking-wider transition" />
+          </div>
+        </section>
 
         {/* Mapa embebido */}
         <div className="rounded-lg overflow-hidden border border-gray-200 shadow-md h-[400px] w-full bg-gray-100">
