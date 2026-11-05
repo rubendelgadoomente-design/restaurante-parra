@@ -10,6 +10,7 @@ export default function Privacidad() {
       <h2>Qué datos tratamos y para qué</h2>
       <p>Los datos que facilitas al reservar mesa (nombre, teléfono, email, número de comensales y observaciones) se usan únicamente para gestionar tu reserva. La base legal es la ejecución de la reserva que solicitas.</p>
       <p>Las reservas se gestionan con CoverManager, que trata los datos por cuenta del restaurante.</p>
+      <p>Para elaborar estadísticas de uso de la web utilizamos Umami, que solo recoge datos agregados y anónimos (páginas vistas, tipo de dispositivo, país), sin cookies y sin identificarte. Los datos se alojan en la Unión Europea.</p>
       <h2>Cuánto tiempo los conservamos</h2>
       <p>Durante el tiempo necesario para gestionar la reserva y atender posibles reclamaciones, y después durante los plazos legales.</p>
       <h2>Comunicaciones comerciales</h2>

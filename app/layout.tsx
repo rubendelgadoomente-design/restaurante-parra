@@ -6,6 +6,7 @@ import { ReservationProvider } from '@/components/ReservationContext'
 import ReservationModal from '@/components/ReservationModal'
 import MobileNav from '@/components/MobileNav'
 import OpenStatus from '@/components/OpenStatus'
+import Analytics from '@/components/Analytics'
 import { SITE, HORARIO, HORARIO_RESUMEN } from '@/lib/site'
 import './globals.css'
 
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Analytics />
         <ReservationProvider>
           {/* Top bar */}
           <div className="hidden md:block bg-zinc-900 text-zinc-300 text-sm py-2">

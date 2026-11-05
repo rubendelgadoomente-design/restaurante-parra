@@ -18,6 +18,8 @@ export default function ReservationButton({
       onClick={openReservation}
       type="button"
       className={className}
+      data-umami-event="Reservar mesa"
+      data-umami-event-boton={label}
     >
       {label}
     </button>
