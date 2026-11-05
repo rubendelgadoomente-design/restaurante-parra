@@ -83,7 +83,8 @@ export const APARCAMIENTOS: Aparcamiento[] = [
     nombre: 'Parking público municipal de la avenida de Madrid',
     direccion: 'Avenida de Madrid con calle de Casa Grande',
     nota: 'Municipal, entrada libre y gratuita hasta completar aforo.',
-    busqueda: 'Aparcamiento Público Avenida de Madrid Calle de Casa Grande, 28410 Manzanares el Real',
+    // Por nombre, Google lo confunde con el de Colmenar: se fija por coordenadas (Rubén, 05/11/2026).
+    busqueda: '40.726179,-3.863309',
   },
 ]
 
