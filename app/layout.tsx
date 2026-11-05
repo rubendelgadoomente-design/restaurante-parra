@@ -7,7 +7,7 @@ import ReservationModal from '@/components/ReservationModal'
 import MobileNav from '@/components/MobileNav'
 import OpenStatus from '@/components/OpenStatus'
 import Analytics from '@/components/Analytics'
-import { SITE, HORARIO, HORARIO_RESUMEN } from '@/lib/site'
+import { SITE, HORARIO, HORARIO_RESUMEN, INDEXABLE } from '@/lib/site'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
@@ -15,6 +15,7 @@ const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
+  robots: INDEXABLE ? undefined : { index: false, follow: false },
   title: {
     default: 'Restaurante Parra | Restaurante en Manzanares el Real desde 1973',
     template: '%s | Restaurante Parra · Manzanares el Real',

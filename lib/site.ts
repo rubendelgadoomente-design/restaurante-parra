@@ -97,3 +97,8 @@ export const rutaAlAparcamiento = (a: Aparcamiento) =>
 // Enlace con la ruta a pie desde el aparcamiento hasta el restaurante.
 export const rutaAPieAlRestaurante = (a: Aparcamiento) =>
   `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(a.busqueda)}&destination=${encodeURIComponent(destinoMaps)}&travelmode=walking`
+
+// No indexar mientras la web viva en *.netlify.app o en previsualizaciones. Al poner el dominio en Netlify, volver a desplegar.
+export const INDEXABLE =
+  !process.env.NETLIFY ||
+  ((process.env.URL || '').includes('restauranteparra.es') && process.env.CONTEXT === 'production')
