@@ -301,8 +301,8 @@ export default function Home() {
           </div>
           <div className="relative h-[420px] rounded-lg overflow-hidden shadow-xl border border-amber-900/10">
             <Image
-              src="/img/arroz.jpg"
-              alt="Paella de marisco servida en paellera"
+              src="/img/platos/paella.webp"
+              alt="Paellas recién hechas en la cocina de Restaurante Parra"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
