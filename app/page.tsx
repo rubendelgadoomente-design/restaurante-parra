@@ -302,7 +302,7 @@ export default function Home() {
           <div className="relative h-[420px] rounded-lg overflow-hidden shadow-xl border border-amber-900/10">
             <Image
               src="/img/platos/paella.webp"
-              alt="Paellas recién hechas en la cocina de Restaurante Parra"
+              alt="Paella mixta recién hecha en la cocina de Restaurante Parra"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"

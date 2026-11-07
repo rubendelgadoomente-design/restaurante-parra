@@ -5,6 +5,8 @@ import { MenuItem } from '@/lib/menu'
 import { Search, Sparkles, AlertCircle, Clock, Wheat, History, Flame } from 'lucide-react'
 import ReservationButton from './ReservationButton'
 import { SITE } from '@/lib/site'
+import { FOTOS_CARTA } from '@/lib/fotos-carta'
+import Image from 'next/image'
 
 interface MenuExplorerProps {
   initialItems: MenuItem[]
@@ -169,6 +171,18 @@ export default function MenuExplorer({ initialItems }: MenuExplorerProps) {
                   >
                     <div className="space-y-2">
                       <div className="flex justify-between items-start gap-4">
+                        <div className="flex items-start gap-4">
+                        {FOTOS_CARTA[item.nombre] && (
+                          <div className="relative h-20 w-20 md:h-24 md:w-24 flex-shrink-0 overflow-hidden rounded-md bg-zinc-100">
+                            <Image
+                              src={FOTOS_CARTA[item.nombre]}
+                              alt={item.nombre}
+                              fill
+                              sizes="96px"
+                              className="object-cover"
+                            />
+                          </div>
+                        )}
                         <div className="space-y-1.5">
                           <h3 className="font-serif font-bold text-lg text-zinc-900 leading-snug">
                             {item.nombre}
@@ -195,6 +209,7 @@ export default function MenuExplorer({ initialItems }: MenuExplorerProps) {
                               </span>
                             )}
                           </div>
+                        </div>
                         </div>
 
                         <span className="font-serif font-bold text-lg text-amber-950 whitespace-nowrap">
